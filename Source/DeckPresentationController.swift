@@ -24,7 +24,7 @@ final class DeckPresentationController: UIPresentationController, UIGestureRecog
     
     // MARK: - Private variables
     
-    private var isSwipeToDismissGestureEnabled = true
+    public var isSwipeToDismissGestureEnabled = true
     private var pan: UIPanGestureRecognizer?
     private var scrollViewUpdater: ScrollViewUpdater?
     

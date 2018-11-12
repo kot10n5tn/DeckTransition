@@ -26,7 +26,7 @@ public final class DeckTransitioningDelegate: NSObject, UIViewControllerTransiti
     
     // MARK: - Private variables
     
-    public var isSwipeToDismissEnabled: Bool
+    private let isSwipeToDismissEnabled: Bool
     private let presentDuration: TimeInterval?
     private let presentAnimation: (() -> ())?
     private let presentCompletion: ((Bool) -> ())?
