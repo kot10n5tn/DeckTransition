@@ -88,7 +88,7 @@ public final class DeckPresentationController: UIPresentationController, UIGestu
         return 1 - (ManualLayout.presentingViewTopInset * 2 / containerView.frame.height)
     }
 	
-    override var frameOfPresentedViewInContainerView: CGRect {
+    override public var frameOfPresentedViewInContainerView: CGRect {
         guard let containerView = containerView else {
             return .zero
         }
@@ -103,7 +103,7 @@ public final class DeckPresentationController: UIPresentationController, UIGestu
 	
 	// MARK: - Presentation
     
-    override func presentationTransitionWillBegin() {
+    override public func presentationTransitionWillBegin() {
         guard let containerView = containerView, let window = containerView.window else {
             return
         }
@@ -238,7 +238,7 @@ public final class DeckPresentationController: UIPresentationController, UIGestu
     ///
     /// It also sets up the gesture recognizer to handle dismissal of the modal
     /// view controller by panning downwards
-    override func presentationTransitionDidEnd(_ completed: Bool) {
+    override public func presentationTransitionDidEnd(_ completed: Bool) {
         guard let containerView = containerView else {
             return
         }
@@ -279,7 +279,7 @@ public final class DeckPresentationController: UIPresentationController, UIGestu
     /// the transition is janky unless it's updated before, hence it's performed
     /// here as well, It's also an inexpensive method since constraints are
     /// modified only when a change is actually needed
-    override func containerViewWillLayoutSubviews() {
+    override public func containerViewWillLayoutSubviews() {
         super.containerViewWillLayoutSubviews()
         
         guard let containerView = containerView else {
@@ -307,7 +307,7 @@ public final class DeckPresentationController: UIPresentationController, UIGestu
     /// express purpose of this method is to update the snapshot view since that
     /// is a relatively expensive operation and only makes sense on orientation
     /// change
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
         coordinator.animate(
@@ -449,7 +449,7 @@ public final class DeckPresentationController: UIPresentationController, UIGestu
     /// the dismissal animation, so this method effectively removes them and
     /// restores the state of the `presentingViewController`'s view to the
     /// expected state at the end of the presenting animation
-    override func dismissalTransitionWillBegin() {
+    override public func dismissalTransitionWillBegin() {
         guard let containerView = containerView else {
             return
         }
@@ -527,7 +527,7 @@ public final class DeckPresentationController: UIPresentationController, UIGestu
     
     /// Method to ensure the layout is as required at the end of the dismissal.
     /// This is required in case the modal is dismissed without animation.
-    override func dismissalTransitionDidEnd(_ completed: Bool) {
+    override public func dismissalTransitionDidEnd(_ completed: Bool) {
         guard let containerView = containerView else {
             return
         }
