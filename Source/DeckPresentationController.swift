@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class DeckPresentationController: UIPresentationController, UIGestureRecognizerDelegate, DeckSnapshotUpdater {
+final public class DeckPresentationController: UIPresentationController, UIGestureRecognizerDelegate, DeckSnapshotUpdater {
     
     // MARK: - Internal variables
     
